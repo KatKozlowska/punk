@@ -3,14 +3,14 @@ import CardList from "../../components/CardList/CardList";
 import { Beer } from "../../types/types";
 
 type MainProps = {
-    beers: Beer[];
+    apibeers: Beer[];
 }
 
 
-const Main = ({beers}:MainProps) => {
+const Main = ({apibeers}:MainProps) => {
     return(
         <main>
-        <CardList beers={beers}/>
+        <CardList apibeers={apibeers}/>
         </main>
     )
 }

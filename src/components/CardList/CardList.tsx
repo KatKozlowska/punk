@@ -2,13 +2,14 @@ import Card from "../Card/Card";
 import { Beer } from "../../types/types";
 
 type CardListProps = {
-    beers: Beer[];
+    apibeers: Beer[];
 }
 
-const CardList = ({beers}:CardListProps) => {
+const CardList = ({apibeers}:CardListProps) => {
     return(
     <div>
-        {beers.map(beer=> <Card 
+        {apibeers.map(beer=> <Card 
+        key={beer.id}
         id={beer.id}
         name={beer.name}
         img={beer.image_url}

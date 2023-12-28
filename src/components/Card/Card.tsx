@@ -13,7 +13,7 @@ const Card = ({id,name,img,tagline,abv,brewed}:CardProps) => {
 
     return(
      
-        <div className="card" key={id}>
+        <div className="card" id={id.toString()}>
             <img className="card__img" src={img}/>
             <div className="card__info">
                 <p className="card__info--heading">{name}</p>

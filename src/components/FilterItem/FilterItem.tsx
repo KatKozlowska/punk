@@ -1,11 +1,16 @@
+import { ChangeEventHandler } from "react";
 
-
-const FilterItem = () => {
+type FilterItemProps = {
+    name:string;
+    onChange:ChangeEventHandler<HTMLInputElement>
+}
+const FilterItem = ({name, onChange}:FilterItemProps) => {
 
 return(
-    <div>
-        <h1>Selections</h1>
-        <input type="checkbox"></input>
+    <div >
+    
+        <input type="checkbox" onChange={onChange}></input>
+        <label>{name}</label>
 
     </div>
 )
