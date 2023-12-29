@@ -9,7 +9,7 @@ const SearchBox = ({search,handleInput}: SearchBoxProps) => {
     return(
     <input type="text"
     value={search}
-    onInput={handleInput} ></input>  
+    onInput={handleInput} /> 
     )
 }
 

@@ -18,7 +18,7 @@ const Card = ({id,name,img,tagline,abv,brewed}:CardProps) => {
             <div className="card__info">
                 <p className="card__info--heading">{name}</p>
                 <p className="card__info--tagline">{tagline}</p>
-                <p className="card__info--info">{abv}</p>
+                <p className="card__info--info">ABV:{abv}%</p>
                 <p>Est.{brewed}</p>
             </div>
         </div>

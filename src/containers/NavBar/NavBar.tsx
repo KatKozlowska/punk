@@ -6,18 +6,20 @@ type NavBarProps = {
     search: string;
     handleInput:FormEventHandler<HTMLInputElement>
     onChangeABV:ChangeEventHandler<HTMLInputElement>;
+    onChangeClassic:ChangeEventHandler<HTMLInputElement>;
+    onChangePh:ChangeEventHandler<HTMLInputElement>;
  
 
 }
 
 
 
-const NavBar = ({search, handleInput, onChangeABV }:NavBarProps) => {
+const NavBar = ({search, handleInput, onChangeABV, onChangeClassic,onChangePh}:NavBarProps) => {
     
     return(
         <nav>
             <SearchBox search={search} handleInput={handleInput}/>
-            <FilterList  onChangeABV={onChangeABV}  />
+            <FilterList  onChangeABV={onChangeABV} onChangeClassic={onChangeClassic} onChangePh={onChangePh} />
         </nav>
     )
 }

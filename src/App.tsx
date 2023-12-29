@@ -1,61 +1,104 @@
-import { useState, FormEvent, ChangeEvent, useEffect} from "react";
+import { useState, FormEvent, useEffect} from "react";
 import { Beer } from "./types/types";
-import beers from "./data/beers";
+//import beers from "./data/beers";
 import Main from "./containers/Main/Main"
 import NavBar from "./containers/NavBar/NavBar";
 
 
 const App = () => {
   const [apibeers, setApiBeers] = useState<Beer[]>([])
-  
-    const [search, setSearch] = useState<string>("");
-    const [searchABV, setSearchABV]= useState<string>("");
+  const [filteredBeers, setFilteredBeers] = useState<Beer[]>([])
+  const [search, setSearch] = useState<string>(""); // change the variable name of search ??
+  const [searchABV, setSearchABV]= useState<number>(0);
+  const [searchClassic, setSearchClasic]= useState<string>("2024");
+  const [searchPh, setSearchPh] = useState<number>(14)
  ;
    
+    const filterBeers = () => {
     
+      setFilteredBeers(apibeers.filter(beer => { 
+        const containsName = beer.name.toLowerCase().includes(search.toLowerCase());
+        const isClassic = (beer.first_brewed.slice(-4)) <= searchClassic
+        const hasAbvGt = beer.abv >= searchABV
+        const hasPhLt = beer.ph <= searchPh
+        
+
+        return containsName && hasAbvGt && hasPhLt && isClassic
+      
+      }))
+    }
+
     const handleInput = (event:FormEvent<HTMLInputElement>) => {
         setSearch(event.currentTarget.value)
+     
     };
 
-    const filteredBeer = apibeers.filter( beers => {
-        return beers.name.toLowerCase().includes(search.toLowerCase());
-    }); 
+ 
+  const handleABVChange = () => {
+    if (searchABV){ setSearchABV(0);
+    } else {setSearchABV(6)}; 
+  };
 
-    const handleABVChange = () => {
-      if (searchABV){ setSearchABV("");
-      }else {setSearchABV("&abv_gt=6")}; // changing the end point 
-    };
+  
+  const handleClassicChange = () => {
+    if (searchClassic == "2024"){ setSearchClasic("2010");
+    } else {setSearchClasic("2024")}; 
+  };
 
-   
-   
-// connecting to the API 
-const getBeers = async () => {
-  const url = `https://api.punkapi.com/v2/beers?per_page=10${searchABV}`
-  const response = await fetch(url); 
-  const beers : Beer[] = await response.json();
-  setApiBeers(beers)
+const handlePhChange = () => {
+  if (searchPh== 14){setSearchPh(4)
+  }else setSearchPh(14) 
 }
-
-useEffect (() => {
-  getBeers();
-},[searchABV ]);
+   
     
+  // connecting to the API 
+  const getBeers = async () => {
+    const beers : Beer [] = [];
+    for(let index = 1; index <=5; index++) {
+     let url = `https://api.punkapi.com/v2/beers?per_page=80&page=${index}`
+      let response = await fetch(url).then(result => result.json()); 
+      beers.push(...response)
+    }
+  console.log(beers)
+    setApiBeers(beers)
+    setFilteredBeers(beers)
+  };
+
+
+
+  useEffect (() => {
+
+    if (apibeers.length == 0) {
+      console.log("i am fetching the masterlist of beers")
+      getBeers();
+    } else { 
+      console.log("i am filtering the list of beers ")
+      filterBeers()
+    }
+
+    },
+    [search, searchABV, searchClassic, searchPh]);
+      
 
   return (
 
       <div>
-        <button onClick={getBeers}>Beer!</button>
+        
         <NavBar 
         search={search}
         handleInput={handleInput} 
-        onChangeABV={handleABVChange} 
+        onChangeABV={handleABVChange}
+        onChangeClassic={handleClassicChange}
+        onChangePh={handlePhChange}
+         
         />
       
-        <Main apibeers={filteredBeer}/>
+        <Main apibeers={filteredBeers}/>
         
       </div>
    
   )
 }
+
 
 export default App;
