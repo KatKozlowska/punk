@@ -1,4 +1,4 @@
-
+import "./Cards.scss";
 
 type CardProps = {
    id:number;

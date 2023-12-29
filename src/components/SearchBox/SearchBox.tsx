@@ -1,4 +1,5 @@
 import { FormEventHandler } from "react";
+import "./SearchBox.scss"
 
 type SearchBoxProps = {
     search: string;
@@ -7,9 +8,11 @@ type SearchBoxProps = {
 
 const SearchBox = ({search,handleInput}: SearchBoxProps) => {
     return(
+        
     <input type="text"
     value={search}
     onInput={handleInput} /> 
+    
     )
 }
 

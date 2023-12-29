@@ -1,6 +1,6 @@
+import "./App.scss"
 import { useState, FormEvent, useEffect} from "react";
 import { Beer } from "./types/types";
-//import beers from "./data/beers";
 import Main from "./containers/Main/Main"
 import NavBar from "./containers/NavBar/NavBar";
 
@@ -82,19 +82,19 @@ const handlePhChange = () => {
 
   return (
 
-      <div>
-        
+      <div className="punk">
+        <nav className="punk__nav">
         <NavBar 
         search={search}
         handleInput={handleInput} 
         onChangeABV={handleABVChange}
         onChangeClassic={handleClassicChange}
         onChangePh={handlePhChange}
-         
         />
-      
+      </nav>
+      <main className="punk__main">
         <Main apibeers={filteredBeers}/>
-        
+      </main>
       </div>
    
   )
