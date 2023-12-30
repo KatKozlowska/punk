@@ -3,6 +3,9 @@ import { useState, FormEvent, useEffect} from "react";
 import { Beer } from "./types/types";
 import Main from "./containers/Main/Main"
 import NavBar from "./containers/NavBar/NavBar";
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import BeerInfo from "./containers/BeerInfo/BeerInfo";
+
 
 
 const App = () => {
@@ -81,9 +84,10 @@ const handlePhChange = () => {
       
 
   return (
-
+    <BrowserRouter>
       <div className="punk">
-        <nav className="punk__nav">
+      <Routes> 
+      <Route path="/" element={<> <nav className="punk__nav">
         <NavBar 
         search={search}
         handleInput={handleInput} 
@@ -91,11 +95,16 @@ const handlePhChange = () => {
         onChangeClassic={handleClassicChange}
         onChangePh={handlePhChange}
         />
-      </nav>
-      <main className="punk__main">
-        <Main apibeers={filteredBeers}/>
-      </main>
+       
+      </nav> <Main apibeers={filteredBeers}/></>}/>
+     
+     
+      {/* <Route path="/" element={<Main apibeers={filteredBeers}/>}/> */}
+      
+      <Route path="/apibeers/:beerName" element={<BeerInfo apibeers={apibeers}/>}/>
+      </Routes>
       </div>
+      </BrowserRouter>
    
   )
 }

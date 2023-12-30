@@ -1,0 +1,39 @@
+
+.beer {
+    display: grid;
+    grid-template-columns: repeat(3,250px);
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 800px;
+    border-radius: 20px;
+    box-shadow: 0 0.625rem 1.25rem rgba(black, 0.25);
+
+    &__img {
+    grid-column: 1;
+        height:500px;
+        max-width: 250px;
+   }
+
+   &__info {
+    grid-column: 2;
+    text-align: center;
+
+   }
+ .beer__img--first{
+    grid-column: 1;
+    }
+
+ .beer__img--last{
+    grid-column: 3;
+    }
+   
+ };
+
+ div{
+
+    justify-self: center;
+ }
+ ul{
+   list-style: none;
+ }

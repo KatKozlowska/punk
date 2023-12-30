@@ -1,12 +1,14 @@
 @use "../../assets/variables" as *;
 
 .card {
+ 
     border: solid 2px $colour-three;
     border-radius: 10px;;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+ 
     
   
     width:300px;
@@ -16,16 +18,18 @@
     height:250px;
     max-width: 100px;
   
- 
     };
 
     &__info{
  
-        border-radius: 10px;
+    border-radius: 10px;
     flex-direction: column;
     text-align: center;
     width: 150px;
     height: 220px;
+    list-style: none;
+    color: black;
+    
     };
 }
 

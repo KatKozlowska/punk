@@ -1,6 +1,7 @@
 
 import CardList from "../../components/CardList/CardList";
 import { Beer } from "../../types/types";
+import "./Main.scss"
 
 type MainProps = {
     apibeers: Beer[];
