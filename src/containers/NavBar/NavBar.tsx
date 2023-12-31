@@ -1,7 +1,7 @@
 import FilterList from "../../components/FilterList/FilterList";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import { FormEventHandler, ChangeEventHandler } from "react";
-import "./NavBar.scss"
+
 
 type NavBarProps = {
     search: string;

@@ -1,6 +1,7 @@
 import FilterItem from "../FilterItem/FilterItem";
 import { ChangeEventHandler } from "react";
 
+
 type FilterListProps = {
     onChangeABV:ChangeEventHandler<HTMLInputElement>;
     onChangeClassic:ChangeEventHandler<HTMLInputElement>;
@@ -11,9 +12,9 @@ type FilterListProps = {
 const FilterList = ({onChangeABV,onChangeClassic,onChangePh}:FilterListProps) => {
 
     return (
-    <div>
-    <FilterItem onChange={onChangeABV} name="High alcohol ABV (above 6)"/>
-    <FilterItem onChange={onChangeClassic} name="Classic range (brewed before 2010)"/>
+    <div className="filter">
+    <FilterItem onChange={onChangeABV} name="High alcohol ABV "/>
+    <FilterItem onChange={onChangeClassic} name="Classic range "/>
     <FilterItem onChange={onChangePh} name="High pH"/>
     </div>
 )

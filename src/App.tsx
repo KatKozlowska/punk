@@ -14,8 +14,9 @@ const App = () => {
   const [search, setSearch] = useState<string>(""); // change the variable name of search ??
   const [searchABV, setSearchABV]= useState<number>(0);
   const [searchClassic, setSearchClasic]= useState<string>("2024");
-  const [searchPh, setSearchPh] = useState<number>(14)
- ;
+  const [searchPh, setSearchPh] = useState<number>(14);
+  const [showBeerInfo, setShowBeerInfo] = useState<boolean>(true);
+ 
    
     const filterBeers = () => {
     
@@ -67,6 +68,9 @@ const handlePhChange = () => {
     setFilteredBeers(beers)
   };
 
+  const toggleBeerInfo = () => {
+    setShowBeerInfo(!showBeerInfo);
+  }
 
 
   useEffect (() => {
@@ -99,9 +103,9 @@ const handlePhChange = () => {
       </nav> <Main apibeers={filteredBeers}/></>}/>
      
      
-      {/* <Route path="/" element={<Main apibeers={filteredBeers}/>}/> */}
+      <Route path="/" element={<Main apibeers={filteredBeers}/>}/>
       
-      <Route path="/apibeers/:beerName" element={<BeerInfo apibeers={apibeers}/>}/>
+      <Route path="/apibeers/:beerName" element={showBeerInfo && <BeerInfo apibeers={apibeers} onClose={toggleBeerInfo}/>}/>
       </Routes>
       </div>
       </BrowserRouter>

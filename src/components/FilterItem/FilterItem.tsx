@@ -1,4 +1,5 @@
 import { ChangeEventHandler } from "react";
+import "./FilterItem.scss"
 
 type FilterItemProps = {
     name:string;
