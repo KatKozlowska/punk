@@ -20,7 +20,7 @@ const NavBar = ({search, handleInput, onChangeABV, onChangeClassic,onChangePh}:N
     return(
         <nav className="nav">
             <div className="nav__search">
-            <SearchBox search={search} handleInput={handleInput}/>
+            <SearchBox placeholder="Search beers ..." search={search} handleInput={handleInput}/>
             </div>
             <div className="nav__filter">
             <FilterList  onChangeABV={onChangeABV} onChangeClassic={onChangeClassic} onChangePh={onChangePh} />

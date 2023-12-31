@@ -3,7 +3,6 @@ import { useState, FormEvent, useEffect} from "react";
 import { Beer } from "./types/types";
 import Main from "./containers/Main/Main"
 import NavBar from "./containers/NavBar/NavBar";
-import {BrowserRouter, Routes, Route} from "react-router-dom"
 import BeerInfo from "./containers/BeerInfo/BeerInfo";
 
 
@@ -15,7 +14,8 @@ const App = () => {
   const [searchABV, setSearchABV]= useState<number>(0);
   const [searchClassic, setSearchClasic]= useState<string>("2024");
   const [searchPh, setSearchPh] = useState<number>(14);
-  const [showBeerInfo, setShowBeerInfo] = useState<boolean>(true);
+  const [selectedBeer, setSelectedBeer] = useState<null | Beer>(null);
+
  
    
     const filterBeers = () => {
@@ -53,6 +53,8 @@ const handlePhChange = () => {
   if (searchPh== 14){setSearchPh(4)
   }else setSearchPh(14) 
 }
+
+
    
     
   // connecting to the API 
@@ -68,11 +70,6 @@ const handlePhChange = () => {
     setFilteredBeers(beers)
   };
 
-  const toggleBeerInfo = () => {
-    setShowBeerInfo(!showBeerInfo);
-  }
-
-
   useEffect (() => {
 
     if (apibeers.length == 0) {
@@ -85,13 +82,18 @@ const handlePhChange = () => {
 
     },
     [search, searchABV, searchClassic, searchPh]);
+
+    const tempFunc = (value: null | Beer) => {
+      console.log(value);
+      setSelectedBeer(value);
+    }
       
 
   return (
-    <BrowserRouter>
+    
       <div className="punk">
-      <Routes> 
-      <Route path="/" element={<> <nav className="punk__nav">
+       
+       <nav className="punk__nav">
         <NavBar 
         search={search}
         handleInput={handleInput} 
@@ -100,15 +102,15 @@ const handlePhChange = () => {
         onChangePh={handlePhChange}
         />
        
-      </nav> <Main apibeers={filteredBeers}/></>}/>
+      </nav> 
+      <Main apibeers={filteredBeers} onSelect={tempFunc}/>
      
-     
-      <Route path="/" element={<Main apibeers={filteredBeers}/>}/>
-      
-      <Route path="/apibeers/:beerName" element={showBeerInfo && <BeerInfo apibeers={apibeers} onClose={toggleBeerInfo}/>}/>
-      </Routes>
+      <div>
+      {(selectedBeer != null) && <BeerInfo selectedBeer={selectedBeer} onSelect={tempFunc}/>}
       </div>
-      </BrowserRouter>
+    
+    </div>
+      
    
   )
 }

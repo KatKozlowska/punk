@@ -7,13 +7,14 @@ type CardProps = {
    tagline:string;
    abv:number;
    brewed:string;
+   handleClick: () => void
 }
 
-const Card = ({id,name,img,tagline,abv,brewed}:CardProps) => {
+const Card = ({id, name, img, tagline, abv, brewed, handleClick}:CardProps) => {
 
     return(
      
-        <div className="card" id={id.toString()}>
+        <div className="card" id={id.toString()} onClick={handleClick}>
             <img className="card__img" src={img}/>
             <div className="card__info">
                 <p className="card__info--heading">{name}</p>

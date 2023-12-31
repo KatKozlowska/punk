@@ -1,0 +1,11 @@
+@use "../../assets/variables" as *;
+
+
+input{
+    font-family: $font-primary;
+    border:solid 2px $colour-primary;
+    font-size: 18px;
+    border-radius: 18px;
+    padding: 5px 10px;
+    
+}

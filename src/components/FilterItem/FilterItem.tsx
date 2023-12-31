@@ -4,13 +4,14 @@ import "./FilterItem.scss"
 type FilterItemProps = {
     name:string;
     onChange:ChangeEventHandler<HTMLInputElement>
+    id:string;
 }
-const FilterItem = ({name, onChange}:FilterItemProps) => {
+const FilterItem = ({name, onChange, id}:FilterItemProps) => {
 
 return(
     <div >
     
-        <input type="checkbox" onChange={onChange}></input>
+        <input id={id} type="checkbox" onChange={onChange}></input>
         <label>{name}</label>
 
     </div>

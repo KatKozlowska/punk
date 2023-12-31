@@ -6,13 +6,16 @@
    display: flex;
    flex-direction: row;
    padding:50px;
+   background-color: $colour-three;
   
 
     &__nav {
-       
+       background-color:  rgba(255, 255, 255, 0.784);
         padding: 30px 30px;
-        border: solid 2px black;
-        grid-row: 1 / end span;
+        border-radius: 10px;
+        font-family: $font-primary;
+        font-size: 20px;
+        box-shadow: 0 0 5px 5px rgba($colour-primary, 0.25);
     };
 
    

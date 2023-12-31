@@ -5,13 +5,14 @@ import "./Main.scss"
 
 type MainProps = {
     apibeers: Beer[];
+    onSelect: (value: null | Beer) => void;
 }
 
 
-const Main = ({apibeers}:MainProps) => {
+const Main = ({apibeers, onSelect}:MainProps) => {
     return(
         <main>
-        <CardList apibeers={apibeers}/>
+        <CardList apibeers={apibeers} onSelect={onSelect}/>
         </main>
     )
 }

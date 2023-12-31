@@ -1,18 +1,19 @@
 @use "../../assets/variables" as *;
 
 .card {
- 
-    border: solid 2px $colour-three;
     border-radius: 10px;;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
- 
-    
-  
+    background-color: rgba(255, 255, 255, 0.784);
+    box-shadow: 0 0 5px 5px rgba($colour-primary, 0.25);
     width:300px;
     height:350px;
+
+    &:hover{
+        cursor: pointer;
+    }
 
     &__img{
     height:250px;
@@ -21,7 +22,8 @@
     };
 
     &__info{
- 
+    font-family: $font-primary;
+    font-size: 18px;
     border-radius: 10px;
     flex-direction: column;
     text-align: center;
@@ -29,6 +31,13 @@
     height: 220px;
     list-style: none;
     color: black;
+    
+    &--heading {
+        font-family: $font-secondary;
+        font-weight: 1000;
+        font-size: 20px;
+        
+    }
     
     };
 }
