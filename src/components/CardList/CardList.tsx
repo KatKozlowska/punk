@@ -11,7 +11,13 @@ const CardList = ({apibeers, onSelect}:CardListProps) => {
     const handleClick = (beer: Beer) => {
         onSelect(beer);
     }
-
+    if(apibeers.length === 0) return (
+    <div className="failed-search">
+    <div>
+    <p>Oops! There are not beverages that match your search.</p>
+    </div>
+    </div>)
+    
     return(
     <div className="card-list">
         {apibeers.map(beer=> (

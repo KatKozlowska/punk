@@ -1,3 +1,4 @@
+@use "../../assets/variables" as *;
 .card-list{
    
     display: flex;
@@ -5,6 +6,20 @@
     gap:25px;
     justify-content: center;
     padding: 0 50px;
+
     
 }
 
+.failed-search {
+    position: fixed;
+    top: 50%;
+    left: 60%;
+    padding:20px;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.784);
+    box-shadow: 0 0 5px 5px rgba($colour-primary, 0.25);
+    border-radius: 10px;
+    font-family: $font-primary;
+    font-size: 20px;
+
+}
