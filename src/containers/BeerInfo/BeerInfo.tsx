@@ -30,7 +30,7 @@ const BeerInfo = ({selectedBeer, onSelect}:BeerInfoProps) => {
                 
                     <p>{selectedBeer.tagline}</p>
                     <p>ABV:{selectedBeer.abv}%</p>
-                    <p>Food pairings: </p>
+                    <p className="parings">Food pairings: </p>
                     <ul>{selectedBeer.food_pairing.map(food=> <li>{food}</li>)}</ul>
                   
                

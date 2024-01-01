@@ -26,13 +26,13 @@
     border-radius: 20px;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 0 10px 10px rgba($colour-primary, 0.25);
-    margin-top:50px;
+    margin-top:25px;
 
     &__img {
       grid-column: 1;
       grid-row:2;
-      height:500px;
-      max-width: 250px;
+      height:400px;
+      max-width: 175px;
    }
 
    &__info {
@@ -72,12 +72,18 @@
 }
 }
 
+.parings{
+  font-size: 20px;
+  font-weight: bold;
+}
  div{
 
     justify-self: center;
  }
 
  ul{
+  padding:0;
+  margin:0;
   display: inline;
   list-style:none;
  }
