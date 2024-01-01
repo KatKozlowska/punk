@@ -1,7 +1,7 @@
 @use "../../assets/variables" as *;
 
 .card {
-    border-radius: 10px;;
+    border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -10,6 +10,7 @@
     box-shadow: 0 0 5px 5px rgba($colour-primary, 0.25);
     width:275px;
     height:250px;
+    
 
     &:hover{
         cursor: pointer;
@@ -47,8 +48,9 @@
 @media screen and (min-width:$tablet){
     .card {
         
-        width:220px;
+        width:210px;
         height:280px;
+        
        
         &__info{
     
