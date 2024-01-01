@@ -91,9 +91,9 @@ const handlePhChange = () => {
 
   return (
     
-      <div className="punk">
+    <div className="punk">
        
-       <nav className="punk__nav">
+      <nav className="punk__nav">
         <NavBar 
         search={search}
         handleInput={handleInput} 
@@ -101,12 +101,12 @@ const handlePhChange = () => {
         onChangeClassic={handleClassicChange}
         onChangePh={handlePhChange}
         />
-       
-      </nav> 
+      </nav>
+
       <Main apibeers={filteredBeers} onSelect={tempFunc}/>
      
       <div>
-      {(selectedBeer != null) && <BeerInfo selectedBeer={selectedBeer} onSelect={tempFunc}/>}
+        {(selectedBeer != null) && <BeerInfo selectedBeer={selectedBeer} onSelect={tempFunc}/>}
       </div>
     
     </div>

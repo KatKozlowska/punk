@@ -1,7 +1,7 @@
 @use "../../assets/variables" as *;
 
 div{
-    padding:10px 0;
+    padding:2px 0;
 
 }
 
@@ -9,4 +9,12 @@ input {
     :checked{
    color: $colour-four;
     }
+}
+
+@media screen and (min-width:$tablet){
+    div{
+        padding:10px 0;
+    }
+
+
 }
