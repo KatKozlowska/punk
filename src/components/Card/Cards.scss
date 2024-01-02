@@ -1,28 +1,27 @@
 @use "../../assets/variables" as *;
 
 .card {
-    border-radius: 10px;;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.784);
-    box-shadow: 0 0 5px 5px rgba($colour-primary, 0.25);
-    width:275px;
-    height:250px;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.784);
+  box-shadow: 0 0 5px 5px rgba($colour-primary, 0.25);
+  width: 275px;
+  height: 250px;
 
-    &:hover{
-        cursor: pointer;
-    }
+  &:hover {
+    cursor: pointer;
+  }
 
-    &__img{
-    height:200px;
+  &__img {
+    height: 200px;
     max-width: 75px;
-    margin-left:25px;
-  
-    };
+    margin-left: 25px;
+  }
 
-    &__info{
+  &__info {
     font-family: $font-primary;
     font-size: 16px;
     border-radius: 10px;
@@ -32,63 +31,51 @@
     height: 250px;
     list-style: none;
     color: black;
-    margin-right:10px;
-    
+    margin-right: 10px;
+
     &--heading {
-        font-family: $font-secondary;
-        font-weight: 1000;
+      font-family: $font-secondary;
+      font-weight: 1000;
+      font-size: 18px;
+    }
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .card {
+    width: 210px;
+    height: 280px;
+
+    &__info {
+      font-size: 16px;
+      width: 100px;
+      height: 250px;
+
+      &--heading {
         font-size: 18px;
-        
+      }
     }
-    
-    };
+  }
 }
 
-@media screen and (min-width:$tablet){
-    .card {
-        
-        width:220px;
-        height:280px;
-       
-        &__info{
-    
-        font-size: 16px;
-        width: 100px;
-        height: 250px;
-       
-        
-        
-        &--heading {
-            font-size: 18px;
-        }
-        
-        };
+@media screen and (min-width: $laptop) {
+  .card {
+    width: 300px;
+    height: 350px;
+
+    &__img {
+      height: 250px;
+      max-width: 100px;
     }
-}
 
-@media screen and (min-width:$laptop){
-    .card {
+    &__info {
+      font-size: 18px;
+      width: 150px;
+      height: 220px;
 
-        width:300px;
-        height:350px;
-
-        &__img{
-        height:250px;
-        max-width: 100px;
-        };
-    
-        &__info{
-        font-size: 18px;
-        width: 150px;
-        height: 220px;
-        
-        
-        &--heading {
-            font-size: 20px;
-        }
-        
-        };
+      &--heading {
+        font-size: 20px;
+      }
     }
+  }
 }
-
-

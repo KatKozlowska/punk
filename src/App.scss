@@ -1,61 +1,48 @@
 @use "./assets/variables" as *;
 
 .punk {
-    background-color: $colour-three;
-    margin:0;
+  background-color: $colour-three;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+
+  &__nav {
+    background-color: rgba(255, 255, 255, 0.784);
+    border-radius: 10px;
+    font-family: $font-primary;
+    font-size: 16px;
+    box-shadow: 0 0 5px 5px rgba($colour-primary, 0.25);
     display: flex;
-    flex-direction: column;
     justify-content: center;
-   
+    padding: 5px;
+    margin: 15px;
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .punk {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+
     &__nav {
-        background-color:  rgba(255, 255, 255, 0.784);
-        border-radius: 10px;
-        font-family: $font-primary;
-        font-size: 16px;
-        box-shadow: 0 0 5px 5px rgba($colour-primary, 0.25);
-        display: flex;
-        justify-content: center;
-        padding:5px;
-        margin:15px;
-     };
-} 
-
-@media screen and (min-width:$tablet) {
-    .punk {
-        display: flex;
-        flex-direction: row;
-        padding:20px;
-       
-
-        &__nav {
-     
-            padding: 10px 10px;
-            font-size: 18px;
-            min-height:100vh;
-            margin:0px;
-            
-        };
-       
+      padding: 10px 10px;
+      font-size: 18px;
+      min-height: 100vh;
+      margin: 0px;
     }
-       
-    
+  }
 }
 
-
-@media screen and (min-width:$laptop){
-    
-      .punk__nav {
-         
-            padding: 30px 30px;
-            font-size: 20px;
-            
-        };
-    }
-
-
-@media screen and (min-width:$large-screen){
-.punk {
-   padding:50px;
+@media screen and (min-width: $laptop) {
+  .punk__nav {
+    padding: 30px 30px;
+    font-size: 20px;
+  }
 }
 
+@media screen and (min-width: $large-screen) {
+  .punk {
+    padding: 50px;
+  }
 }

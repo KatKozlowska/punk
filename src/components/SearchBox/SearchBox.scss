@@ -1,19 +1,15 @@
 @use "../../assets/variables" as *;
 
-
-input{
-    font-family: $font-primary;
-    border:solid 2px $colour-primary;
-    font-size: 16px;
-    border-radius: 18px;
-    padding: 5px 10px;
-    
+input {
+  font-family: $font-primary;
+  border: solid 2px $colour-primary;
+  font-size: 16px;
+  border-radius: 18px;
+  padding: 5px 10px;
 }
 
-@media screen and (min-width:$tablet){
-    input{
-        font-size: 18px; 
-    }
+@media screen and (min-width: $tablet) {
+  input {
+    font-size: 18px;
+  }
 }
-
-

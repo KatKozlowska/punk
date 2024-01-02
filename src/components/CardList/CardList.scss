@@ -1,62 +1,61 @@
 @use "../../assets/variables" as *;
 
-.card-list{
-   margin-top:25px;
-    display: flex;
-    flex-wrap: wrap;
-    gap:15px;
-    justify-content: center;
-    padding: 15px 5px;
-
-    
+.card-list {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  padding: 15px 5px;
 }
 
 .failed-search {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.784);
+  box-shadow: 0 0 5px 5px rgba($colour-primary, 0.25);
+  border-radius: 10px;
+  font-family: $font-primary;
+  font-size: 16px;
+}
+
+@media screen and (min-width: $tablet) {
+  .card-list {
+    padding: 0;
+    margin: 0;
+  }
+
+  .failed-search {
     position: fixed;
     top: 50%;
     left: 60%;
-    padding:20px;
+    padding: 20px;
+    font-size: 18px;
+    margin-left: 30px;
+  }
+}
+@media screen and (min-width: $laptop) {
+  .card-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    padding: 0 50px;
+  }
+
+  .failed-search {
+    position: fixed;
+    top: 50%;
+    left: 60%;
+    padding: 20px;
     transform: translate(-50%, -50%);
     background-color: rgba(255, 255, 255, 0.784);
     box-shadow: 0 0 5px 5px rgba($colour-primary, 0.25);
     border-radius: 10px;
     font-family: $font-primary;
-    font-size: 16px;
-
+    font-size: 20px;
+  }
 }
-@media screen and (min-width:$tablet){
-    .card-list{
-        padding: 0;
-        margin: 0 ;
-        gap:25px ;
-    }
-}
-@media screen and (min-width:$laptop){
-    .card-list{
-   
-        display: flex;
-        flex-wrap: wrap;
-        
-        justify-content: center;
-        padding: 0 50px;
-    
-        
-    }
-    
-    .failed-search {
-        position: fixed;
-        top: 50%;
-        left: 60%;
-        padding:20px;
-        transform: translate(-50%, -50%);
-        background-color: rgba(255, 255, 255, 0.784);
-        box-shadow: 0 0 5px 5px rgba($colour-primary, 0.25);
-        border-radius: 10px;
-        font-family: $font-primary;
-        font-size: 20px;
-    
-    }
-}
-
-
-

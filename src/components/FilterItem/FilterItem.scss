@@ -1,20 +1,17 @@
 @use "../../assets/variables" as *;
 
-div{
-    padding:2px 0;
-
+div {
+  padding: 2px 0;
 }
 
 input {
-    :checked{
-   color: $colour-four;
-    }
+  :checked {
+    color: $colour-four;
+  }
 }
 
-@media screen and (min-width:$tablet){
-    div{
-        padding:10px 0;
-    }
-
-
+@media screen and (min-width: $tablet) {
+  div {
+    padding: 10px 0;
+  }
 }
