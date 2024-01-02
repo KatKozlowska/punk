@@ -4,15 +4,18 @@ import { Beer } from "./types/types";
 import Main from "./containers/Main/Main";
 import NavBar from "./containers/NavBar/NavBar";
 import BeerInfo from "./containers/BeerInfo/BeerInfo";
+import { Pagination } from "./components/Pagination";
 
 const App = () => {
   const [apibeers, setApiBeers] = useState<Beer[]>([]);
   const [filteredBeers, setFilteredBeers] = useState<Beer[]>([]);
-  const [search, setSearch] = useState<string>(""); 
+  const [search, setSearch] = useState<string>(""); // change the variable name of search ??
   const [searchABV, setSearchABV] = useState<number>(0);
   const [searchClassic, setSearchClasic] = useState<string>("2024");
   const [searchPh, setSearchPh] = useState<number>(14);
   const [selectedBeer, setSelectedBeer] = useState<null | Beer>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [cardPerPage, setCardPerPage] = useState(8);
 
 
   const filterBeers = () => {
@@ -86,6 +89,12 @@ const App = () => {
     setSelectedBeer(value);
   };
 
+  const indexLast = currentPage * cardPerPage;
+  const indexFirst = indexLast - cardPerPage;
+  const currentCards = filteredBeers.slice(indexFirst, indexLast);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div className="punk">
       <nav className="punk__nav">
@@ -97,9 +106,14 @@ const App = () => {
           onChangePh={handlePhChange}
         />
       </nav>
-
-      <Main apibeers={filteredBeers} onSelect={tempFunc} />
-
+      <main className="punk__main">
+        <Main apibeers={currentCards} onSelect={tempFunc} />
+        <Pagination
+          cardPerPage={cardPerPage}
+          totalCards={filteredBeers.length}
+          paginate={paginate}
+        />
+      </main>
       <div>
         {selectedBeer != null && (
           <BeerInfo selectedBeer={selectedBeer} onSelect={tempFunc} />
