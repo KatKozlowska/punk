@@ -1,31 +1,81 @@
-@use "../assets/variables" as * ;
-.pagination{
-    display: flex;
-  
-    height:200px;
-    justify-content: center;
-    align-items: end;
-}
+@use "../assets/variables" as *;
+
 .pagination-ul {
-    display: flex;
-    justify-content: center;
-
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
 
 .page-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    border: solid black 1px;
-    height:28px;
-    width: 28px;
-    font-family: $font-primary;
-    margin: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.784);
+  box-shadow: 0 0 1px 1px rgba($colour-primary, 0.25);
+  height: 16px;
+  width: 16px;
+  font-size: 14px;
+  margin: 2px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
-a{
- color: black;
- text-decoration: none;   
+p {
+  font-family: $font-primary;
+  color: black;
+  text-decoration: none;
+  &:hover {
+    cursor: pointer;
+  }
 }
+
+@media screen and (min-width: $tablet) {
+  .pagination {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+  .pagination-heading {
+    padding-left: 5px;
+  }
+  .page-item {
+    background-color: rgba(255, 255, 255, 0.784);
+    box-shadow: 0 0 2px 2px rgba($colour-primary, 0.25);
+    height: 16px;
+    width: 16px;
+    font-size: 14px;
+    margin: 5px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (min-width: $laptop) {
+   
+    .pagination-heading {
+      padding-left: 15px;
+    }
+    .page-item {
+      height: 25px;
+      width: 25px;
+      font-size: 16px;
+      margin: 5px;
+    }
+  }
+
+  @media screen and (min-width: $large-screen) {
+   
+   .pagination-heading{
+    font-size: 18px;
+   }
+    .page-item {
+      height: 30px;
+      width: 30px;
+      font-size: 18px;
+      margin: 5px;
+    }
+  }
+  
+  

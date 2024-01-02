@@ -6,6 +6,7 @@ import NavBar from "./containers/NavBar/NavBar";
 import BeerInfo from "./containers/BeerInfo/BeerInfo";
 import { Pagination } from "./components/Pagination";
 
+
 const App = () => {
   const [apibeers, setApiBeers] = useState<Beer[]>([]);
   const [filteredBeers, setFilteredBeers] = useState<Beer[]>([]);
@@ -15,7 +16,7 @@ const App = () => {
   const [searchPh, setSearchPh] = useState<number>(14);
   const [selectedBeer, setSelectedBeer] = useState<null | Beer>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [cardPerPage, setCardPerPage] = useState(8);
+  const cardPerPage= 8;
 
 
   const filterBeers = () => {
@@ -93,7 +94,7 @@ const App = () => {
   const indexFirst = indexLast - cardPerPage;
   const currentCards = filteredBeers.slice(indexFirst, indexLast);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber:number) => setCurrentPage(pageNumber);
 
   return (
     <div className="punk">
@@ -113,7 +114,12 @@ const App = () => {
           totalCards={filteredBeers.length}
           paginate={paginate}
         />
+       
       </main>
+      
+       
+    
+      
       <div>
         {selectedBeer != null && (
           <BeerInfo selectedBeer={selectedBeer} onSelect={tempFunc} />

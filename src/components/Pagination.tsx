@@ -14,10 +14,11 @@ export const Pagination = ({ cardPerPage, totalCards, paginate}:PaginationProps)
   }
   return (
     <div className='pagination'>
+      <p className="pagination-heading">Pages</p>
       <ul className='pagination-ul'>
         {pageNumbers.map((number) => (
-          <li key={number} className='page-item'>
-            <a onClick={() => paginate(number)} href="!#">{number}</a>
+          <li key={number} className='page-item'onClick={() => paginate(number)}>
+            <p>{number}</p>
           </li>
         ))}
       </ul>
