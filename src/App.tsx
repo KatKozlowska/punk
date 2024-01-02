@@ -13,6 +13,8 @@ const App = () => {
   const [searchClassic, setSearchClasic] = useState<string>("2024");
   const [searchPh, setSearchPh] = useState<number>(14);
   const [selectedBeer, setSelectedBeer] = useState<null | Beer>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage, setPostPerPage] = useState(10)
 
   const filterBeers = () => {
     setFilteredBeers(
@@ -72,9 +74,11 @@ const App = () => {
     if (apibeers.length == 0) {
       console.log("i am fetching the masterlist of beers");
       getBeers();
-    } else {
+    } else if (apibeers.length > 0){
       console.log("i am filtering the list of beers ");
       filterBeers();
+    } else {
+      
     }
   }, [search, searchABV, searchClassic, searchPh]);
 
